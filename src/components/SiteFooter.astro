@@ -1,0 +1,36 @@
+---
+import Logo from './Logo.astro';
+---
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <Logo />
+      <p>Clear, evidence-led guides to the parts inside your PC.</p>
+    </div>
+    <nav aria-label="Footer navigation" class="footer-links">
+      <a href="/about/">About</a>
+      <a href="/how-we-rank/">How We Rank</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/cookies/">Cookies</a>
+      <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>© {new Date().getFullYear()} Core &amp; Pixel</span>
+    <span>Prices and test data are shown only when verified for the stated market.</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer { margin-top: 5rem; padding: 2.5rem 0 1.25rem; background: var(--white); border-top: 1px solid var(--line); }
+  .footer-top, .footer-bottom { width: min(100% - 3rem, 70rem); margin-inline: auto; }
+  .footer-top { display: flex; justify-content: space-between; gap: 3rem; padding-bottom: 2rem; }
+  .footer-brand p { max-width: 20rem; color: var(--muted); font-size: .88rem; }
+  .footer-links { display: flex; flex-wrap: wrap; align-content: flex-start; gap: .75rem 1.5rem; max-width: 32rem; }
+  .footer-links a { color: var(--body); font-size: .82rem; text-decoration: none; }
+  .footer-links a:hover { color: var(--teal-dark); text-decoration: underline; }
+  .footer-bottom { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
+  @media (max-width: 650px) { .footer-top, .footer-bottom { width: min(100% - 2rem, 70rem); flex-direction: column; } .footer-links { gap: .75rem 1rem; } }
+</style>

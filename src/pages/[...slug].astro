@@ -1,0 +1,85 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../components/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { sectionLabels } from '../data/guides';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('guides');
+  return entries.map((entry) => ({
+    params: { slug: entry.data.path.replace(/^\//, '').replace(/\/$/, '') },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const section = sectionLabels[entry.data.section];
+const crumbs = [{ label: section, href: `/${entry.data.section}/` }, { label: entry.data.title }];
+const noindex = entry.data.status !== 'published';
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  noindex={noindex}
+  breadcrumbs={crumbs}
+  article={{ headline: entry.data.title, description: entry.data.description, path: entry.data.path, section: entry.data.section }}
+>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, ...crumbs]} />
+  <div class="article-grid">
+    <article class="article-main">
+      <header class="article-header">
+        <p class="kicker">{section} explainer</p>
+        <h1>{entry.data.title}</h1>
+        <p class="article-deck">{entry.data.description}</p>
+        <p class="article-meta">Core &amp; Pixel · Editorial draft · Owner review pending</p>
+      </header>
+      {noindex && <p class="draft-banner">Draft for review. This page is noindex until the owner approves the wording and sources.</p>}
+      <aside class="short-answer" aria-label="Short answer">
+        <p class="eyebrow">The short answer</p>
+        <p>A core is processing hardware inside the CPU. A software thread is a path of work that the operating system schedules. Some cores can handle more than one hardware thread by sharing resources; that does not make them equivalent to two physical cores.</p>
+      </aside>
+      <AdSlot />
+      <div class="prose article-prose"><Content /></div>
+      <section class="sources-block" aria-labelledby="sources-title">
+        <h2 id="sources-title">Sources</h2>
+        <ul class="source-list">{entry.data.sources.map((source) => <li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul>
+      </section>
+      <div class="related-box"><strong>Keep learning</strong><p><a href="/cpus/">Browse the CPU hub</a> · <a href="/how-we-rank/">Read our evidence method</a></p></div>
+    </article>
+    <aside class="article-aside">
+      <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>{headings.filter((heading) => heading.depth === 2).map((heading, index) => <li><a href={`#${heading.slug}`}><span>{String(index + 1).padStart(2, '0')}</span>{heading.text}</a></li>)}</ol></nav>
+      <div class="related-list"><p class="eyebrow">Related guides</p><a href="/cpus/">Explore CPU guides</a><a href="/cpus/performance-rankings/">CPU ranking layout</a></div>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .article-grid { display: grid; grid-template-columns: minmax(0, 1fr) 14rem; align-items: start; gap: 1.5rem; max-width: 65rem; margin: 0 auto; }
+  .article-header { padding: .4rem 0 1rem; }
+  .article-header h1 { max-width: 47rem; margin: .65rem 0 .5rem; color: var(--navy); font-size: clamp(2rem, 4vw, 3.05rem); line-height: 1.08; letter-spacing: -.035em; }
+  .article-deck { max-width: 46rem; margin: 0; color: var(--body); line-height: 1.55; }
+  .article-meta { margin: 1rem 0 0; color: var(--muted); font-size: .63rem; font-weight: 750; text-transform: uppercase; letter-spacing: .06em; }
+  .short-answer { padding: 1.15rem 1.25rem; border-radius: .7rem; background: var(--mint); }
+  .short-answer p:last-child { margin: .45rem 0 0; color: var(--navy); font-size: .9rem; line-height: 1.6; }
+  .article-prose { font-size: .98rem; }
+  .article-prose h2 { scroll-margin-top: 1.5rem; }
+  .article-aside { position: sticky; top: 1rem; padding-top: 1rem; }
+  .toc { padding: 1rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--white); }
+  .toc h2 { margin: 0 0 .75rem; color: var(--navy); font-size: .72rem; text-transform: uppercase; }
+  .toc ol { display: grid; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+  .toc a { display: flex; gap: .55rem; color: var(--body); font-size: .68rem; line-height: 1.45; text-decoration: none; }
+  .toc a:hover { color: var(--teal-dark); text-decoration: underline; }
+  .toc a span { color: var(--teal); font-size: .6rem; font-weight: 850; }
+  .related-list { display: grid; gap: .55rem; margin-top: 1rem; font-size: .72rem; }
+  .related-list a { color: var(--navy); font-weight: 750; text-decoration: none; }
+  .related-list a:hover { color: var(--teal-dark); text-decoration: underline; }
+  .sources-block { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .sources-block h2 { margin: 0; color: var(--navy); font-size: 1.1rem; }
+  .related-box { margin-top: 1.5rem; padding: 1rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--white); font-size: .82rem; }
+  .related-box p { margin-bottom: 0; }
+  @media (max-width: 850px) { .article-grid { grid-template-columns: minmax(0, 1fr); } .article-aside { position: static; grid-row: 1; padding-top: 0; } .toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .toc ol { grid-template-columns: 1fr; } }
+</style>

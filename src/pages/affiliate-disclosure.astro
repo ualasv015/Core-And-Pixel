@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout title="Affiliate disclosure" description="Affiliate disclosure information for Core & Pixel." breadcrumbs={[{ label: 'Affiliate Disclosure' }]} noindex>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Affiliate Disclosure' }]} />
+  <section class="page-hero"><p class="kicker">Transparency</p><h1>Affiliate disclosure</h1><p>Clear disclosure belongs near any recommendation or link that may earn the site a commission.</p></section>
+  <div class="content-narrow prose"><p>Core &amp; Pixel does not currently include affiliate links. If affiliate relationships are added, this page and the relevant article disclosures must describe them accurately before those links are published.</p><p class="draft-banner">Review this statement if the site's commercial relationships change.</p></div>
+</BaseLayout>

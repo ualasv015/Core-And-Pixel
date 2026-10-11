@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout title="About Core & Pixel" description="Learn about the editorial standards and owner details behind Core & Pixel." breadcrumbs={[{ label: 'About' }]} noindex>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+  <section class="page-hero"><p class="kicker">About</p><h1>PC hardware, made clear.</h1><p>Core &amp; Pixel is a planned English-language publication for people learning to choose, build and upgrade a PC.</p></section>
+  <div class="content-narrow prose">
+    <h2>What this site is for</h2><p>Our guides are designed for beginner and intermediate readers. They explain the terms first, show where evidence comes from and point out what still depends on the exact component or local market.</p>
+    <h2>Who is behind it</h2><p><strong>Owner:</strong> [Owner name or business name to be added before launch.]</p><p><strong>Author and reviewer:</strong> [Add a verified author name, biography and relevant experience before launch.]</p>
+    <h2>Editorial review</h2><p>Technical articles should cite reliable sources near the claims they support. Buying guidance and rankings require current evidence and a market-specific review. Owner review of clarity is part of the planned publication process.</p>
+    <div class="draft-banner">Owner details are intentionally left blank. This page is not ready for public launch.</div>
+  </div>
+</BaseLayout>

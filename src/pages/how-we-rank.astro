@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout title="How we rank PC hardware" description="How Core & Pixel plans to compare compatible CPU and GPU test data, disclose limitations and show prices by market." breadcrumbs={[{ label: 'How We Rank' }]} noindex>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'How We Rank' }]} />
+  <section class="page-hero"><p class="kicker">Evidence and corrections</p><h1>How we rank PC hardware</h1><p>Rankings should help readers understand the evidence, not hide it behind a single unexplained score.</p></section>
+  <div class="content-narrow prose">
+    <h2>Keep unlike tests separate</h2><p>Gaming, productivity and value answer different questions. GPU results also depend on resolution, rendering method, game, settings and test system. We will not combine incompatible tests into one universal number.</p>
+    <h2>Show where a result came from</h2><p>Each published result should identify the review or test source, test suite, relevant conditions and date. When methods differ, we will keep results by source or avoid a direct ranking.</p>
+    <h2>Use user-submitted scores carefully</h2><p>User-submitted benchmark databases can provide supplementary context. They will not be the sole basis for an editorial ranking because the systems and conditions may not be controlled in the same way.</p>
+    <h2>Show prices by market</h2><p>US prices will use a US store and USD. A euro listing will identify its country, store, product variant and check date. A US price converted into euros is not a euro-area offer.</p>
+    <h2>Update with a reason</h2><p>When evidence, price or availability changes, the page should state what changed. We will not change dates merely to make a page appear fresh. Readers can use the contact page to report an error; verified corrections will be recorded here.</p>
+    <div class="draft-banner">Methodology draft: the site owner should review the source policy, update cadence and correction contact before this page is published.</div>
+  </div>
+</BaseLayout>

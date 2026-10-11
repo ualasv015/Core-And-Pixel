@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import AdSlot from '../components/AdSlot.astro';
+import GuideCard from '../components/GuideCard.astro';
+
+const title = 'Understand your PC. Build with confidence.';
+const description = 'Straightforward guides to CPUs, graphics cards and the parts that make a PC work, with every technical term explained.';
+---
+
+<BaseLayout title={title} description={description} currentPath="/">
+  <section class="home-hero">
+    <div class="hero-copy">
+      <span class="pill">PC hardware, made clear</span>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <div class="hero-actions">
+        <a class="button" href="/cpus/">Start with the basics</a>
+        <a class="button button--secondary" href="/cpus/performance-rankings/">Browse CPU rankings</a>
+      </div>
+    </div>
+    <aside class="start-panel" aria-labelledby="start-title">
+      <p class="eyebrow">New to PC hardware?</p>
+      <h2 id="start-title">Start here</h2>
+      <p>A short path from learning the parts to checking a build.</p>
+      <ol>
+        <li><span>01</span><div><strong>Learn the parts</strong><small>CPU, GPU, memory and storage</small></div></li>
+        <li><span>02</span><div><strong>Check compatibility</strong><small>Fit, power, sockets and BIOS</small></div></li>
+        <li><span>03</span><div><strong>Compare evidence</strong><small>Understand tests before buying</small></div></li>
+      </ol>
+    </aside>
+  </section>
+
+  <section class="section-block" aria-labelledby="next-step-title">
+    <div class="section-title-row">
+      <div><h2 class="section-heading" id="next-step-title">Choose your next step</h2><p class="section-intro">Clear answers for the parts you are comparing, building or upgrading.</p></div>
+    </div>
+    <div class="grid-3 topic-cards">
+      <GuideCard title="Understand CPUs" description="Cores, threads, clock speed and the numbers that matter." href="/cpus/" label="Learn" />
+      <GuideCard title="Choose a graphics card" description="Match resolution, games, VRAM and budget." href="/gpus/" label="Choose" accent="amber" />
+      <GuideCard title="Build and upgrade" description="Check compatibility before you spend." href="/pc-building/" label="Check" />
+    </div>
+  </section>
+
+  <section class="section-block popular" aria-labelledby="popular-title">
+    <div><h2 class="section-heading" id="popular-title">A good place to start</h2><p class="section-intro">One clear answer can make the rest of a PC build easier to understand.</p></div>
+    <GuideCard title="CPU cores vs. threads: what each one does" description="A plain-English explanation of physical cores, software threads and why a higher thread count is not an automatic speed boost." href="/cpus/cores-vs-threads/" label="CPU explainer" />
+  </section>
+
+  <AdSlot />
+  <p class="launch-note">This is an editorial review build. The final domain, owner details, policies and remaining launch guides are still being prepared.</p>
+</BaseLayout>
+
+<style>
+  .home-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(18rem, .8fr); align-items: center; gap: clamp(2rem, 7vw, 6rem); padding: 2.4rem 0 1.8rem; }
+  .hero-copy h1 { max-width: 42rem; margin: 1rem 0 .8rem; color: var(--navy); font-size: clamp(2.35rem, 5.5vw, 4rem); line-height: 1.02; letter-spacing: -.05em; }
+  .hero-copy > p { max-width: 43rem; margin: 0; color: var(--body); font-size: 1.05rem; line-height: 1.6; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+  .start-panel { padding: 1.4rem 1.5rem; border-radius: 1rem; background: var(--navy); color: var(--white); }
+  .start-panel .eyebrow { color: var(--amber); }
+  .start-panel h2 { margin: .55rem 0 .4rem; font-size: 1.55rem; }
+  .start-panel > p:not(.eyebrow) { margin: 0; color: #D7E2E6; font-size: .82rem; }
+  .start-panel ol { display: grid; gap: .9rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+  .start-panel li { display: flex; gap: .8rem; align-items: flex-start; }
+  .start-panel li > span { color: var(--amber); font-size: .7rem; font-weight: 850; }
+  .start-panel strong, .start-panel small { display: block; }
+  .start-panel strong { font-size: .78rem; }
+  .start-panel small { margin-top: .15rem; color: #B8C9D0; font-size: .65rem; }
+  .section-title-row { display: flex; justify-content: space-between; align-items: end; margin-bottom: 1rem; }
+  .popular { display: grid; grid-template-columns: minmax(14rem, .7fr) minmax(20rem, 1.3fr); align-items: center; gap: 2rem; }
+  .popular .guide-card { min-height: 7.4rem; }
+  .launch-note { color: var(--muted); font-size: .75rem; }
+  @media (max-width: 760px) { .home-hero { grid-template-columns: 1fr; padding-top: 1.7rem; gap: 1.5rem; } .hero-copy h1 { font-size: clamp(2.25rem, 11vw, 3.15rem); } .hero-copy > p { font-size: .94rem; } .start-panel { max-width: none; } .popular { grid-template-columns: 1fr; gap: 1rem; } }
+</style>

@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout title="Contact Core & Pixel" description="Contact details and correction instructions for Core & Pixel." breadcrumbs={[{ label: 'Contact' }]} noindex>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+  <section class="page-hero"><p class="kicker">Contact</p><h1>Send a question or report a correction.</h1><p>We plan to use this page for reader questions, source suggestions and corrections to published guides.</p></section>
+  <div class="content-narrow surface"><h2>Email</h2><p>[Add the public contact email before launch.]</p><h2>Corrections</h2><p>Please include the page URL, the sentence or data point in question, and a reliable source that helps us check it.</p><p class="draft-banner">Contact details are missing, so this page is not ready for publication.</p></div>
+</BaseLayout>

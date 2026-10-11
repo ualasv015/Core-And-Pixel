@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../components/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AdSlot from '../../components/AdSlot.astro';
+---
+
+<BaseLayout title="GPU performance rankings by workload" description="A planned GPU ranking structure that separates resolution, rasterization, ray tracing and test conditions." currentPath="/gpus/" noindex breadcrumbs={[{ label: 'GPUs', href: '/gpus/' }, { label: 'Performance rankings' }]}>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'GPUs', href: '/gpus/' }, { label: 'Performance rankings' }]} />
+  <section class="page-hero"><p class="kicker">GPU rankings</p><h1>Compare graphics cards by resolution and rendering method.</h1><p>Rasterization, ray tracing and upscaling results will remain separate when the tests are not directly comparable.</p></section>
+  <div class="notice"><strong>Ranking data is not published yet.</strong><p>This page shows the intended structure. Product names, scores, prices and conclusions will appear only after the sources and test conditions are reviewed.</p></div>
+  <section class="section-block"><h2 class="section-heading">Evidence we will show</h2><ul class="check-list"><li>Resolution, game or application, graphics preset and test date.</li><li>Average frame rate and other metrics only when a source reports them consistently.</li><li>US dollar and country-specific euro listings with the store and check date.</li><li>Known gaps and differences between test systems.</li></ul></section>
+  <AdSlot />
+  <p><a href="/how-we-rank/">Read the planned ranking methodology →</a></p>
+</BaseLayout>

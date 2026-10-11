@@ -1,0 +1,25 @@
+---
+interface Props { title: string; description: string; href?: string; label?: string; accent?: 'teal' | 'amber' }
+const { title, description, href, label = 'Explore guide', accent = 'teal' } = Astro.props;
+---
+
+<article class:list={['guide-card', `guide-card--${accent}`, !href && 'guide-card--planned']}>
+  {label && <p class="eyebrow">{label}</p>}
+  <h3>{href ? <a href={href}>{title}</a> : title}</h3>
+  <p class="guide-card-copy">{description}</p>
+  <span class="guide-card-link">{href ? 'Read guide' : 'In the editorial plan'}</span>
+</article>
+
+<style>
+  .guide-card { display: flex; min-height: 9.3rem; flex-direction: column; padding: 1rem 1.1rem; border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: .55rem; background: var(--white); }
+  .guide-card--amber { border-left-color: var(--amber); }
+  .guide-card--planned { background: #FBFCFA; }
+  .eyebrow { margin: 0 0 .55rem; color: var(--teal-dark); font-size: .58rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .guide-card--amber .eyebrow { color: #A66A0E; }
+  h3 { margin: 0; color: var(--navy); font-size: 1rem; line-height: 1.35; }
+  h3 a { color: inherit; text-decoration: none; }
+  h3 a:hover { color: var(--teal-dark); text-decoration: underline; }
+  .guide-card-copy { margin: .45rem 0 1rem; color: var(--body); font-size: .8rem; line-height: 1.5; }
+  .guide-card-link { margin-top: auto; color: var(--teal-dark); font-size: .69rem; font-weight: 800; }
+  .guide-card--planned .guide-card-link { color: var(--muted); font-weight: 650; }
+</style>

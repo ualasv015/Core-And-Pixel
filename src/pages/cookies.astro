@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout title="Cookie information" description="Draft cookie information for the Core & Pixel website." breadcrumbs={[{ label: 'Cookies' }]} noindex>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Cookies' }]} />
+  <section class="page-hero"><p class="kicker">Cookies and storage</p><h1>Cookie information</h1><p>The final list depends on the production hosting, consent, advertising and analytics services that are actually enabled.</p></section>
+  <div class="content-narrow prose"><div class="draft-banner">Completion required before launch: inventory the live services and verify the consent behavior in each market.</div><h2>Current local build</h2><p>This source project does not add advertising, analytics or a consent-management script. The production host or future integrations may behave differently and must be checked before publication.</p><h2>Cookie list</h2><p>[Add each cookie or storage item, provider, purpose, duration and category after checking the production site.]</p><h2>Manage your choices</h2><p>[Describe the consent controls and how visitors can change or withdraw their choices.]</p></div>
+</BaseLayout>

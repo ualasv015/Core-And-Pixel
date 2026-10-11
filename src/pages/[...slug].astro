@@ -2,7 +2,6 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../components/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import AdSlot from '../components/AdSlot.astro';
 import { sectionLabels } from '../data/guides';
 
 export async function getStaticPaths() {
@@ -41,7 +40,6 @@ const noindex = entry.data.status !== 'published';
         <p class="eyebrow">The short answer</p>
         <p>A core is processing hardware inside the CPU. A software thread is a path of work that the operating system schedules. Some cores can handle more than one hardware thread by sharing resources; that does not make them equivalent to two physical cores.</p>
       </aside>
-      <AdSlot />
       <div class="prose article-prose"><Content /></div>
       <section class="sources-block" aria-labelledby="sources-title">
         <h2 id="sources-title">Sources</h2>

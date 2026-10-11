@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../components/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import AdSlot from '../../components/AdSlot.astro';
 ---
 
 <BaseLayout title="Desktop CPU performance ranking" description="A ranking layout for separate gaming, productivity and value results, with sources, conditions and price context visible." currentPath="/cpus/" noindex breadcrumbs={[{ label: 'CPUs', href: '/cpus/' }, { label: 'Performance rankings' }]}>
@@ -15,7 +14,6 @@ import AdSlot from '../../components/AdSlot.astro';
     </tbody></table></div>
   </section>
   <div class="price-note"><strong>Price context</strong><p>US and euro-area prices will be checked separately by store and country. EUR will not be calculated by converting a US listing.</p></div>
-  <AdSlot />
   <p class="muted"><small>No ranking conclusion is available until test sources can be compared fairly. User-submitted benchmark data may be supplementary context, never the sole basis for a ranking.</small></p>
 </BaseLayout>
 

@@ -2,7 +2,6 @@
 import BaseLayout from '../../components/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideCard from '../../components/GuideCard.astro';
-import AdSlot from '../../components/AdSlot.astro';
 import { guidePlan } from '../../data/guides';
 const guides = guidePlan.filter((guide) => guide.section === 'pc-building');
 ---
@@ -11,7 +10,6 @@ const guides = guidePlan.filter((guide) => guide.section === 'pc-building');
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'PC Building' }]} />
   <section class="page-hero"><p class="kicker">PC Building</p><h1>Check the fit before you build.</h1><p>Compatibility depends on the exact parts, revision, BIOS, case dimensions and connectors. Use model-specific support pages for the final check.</p></section>
   <section class="section-block"><h2 class="section-heading">Build with fewer surprises</h2><p class="section-intro">The planned guides cover the checks that are easiest to miss.</p><div class="grid-3 planned-grid">{guides.map((guide, index) => <GuideCard title={guide.title} description={guide.intent} label="Planned guide" accent={index === 1 ? 'amber' : 'teal'} />)}</div></section>
-  <AdSlot />
   <aside class="notice"><strong>Use the manufacturer's compatibility list.</strong><p>A matching socket alone does not prove that a motherboard supports a processor. Check the exact board model, revision and BIOS version.</p></aside>
 </BaseLayout>
 

@@ -34,6 +34,18 @@ Wattage does not describe build quality, voltage regulation, protections, noise 
 
 Leave reasonable capacity for the planned workload and transient demand, but do not buy an unnecessarily oversized unit based on a generic online calculator. If you are unsure, compare the component manufacturers' recommendations and ask the PSU maker to confirm the specific configuration.
 
+## Understand efficiency labels and newer connectors
+
+An 80 PLUS label describes efficiency at specified loads and under a certification programme. It does not independently prove that a unit has strong voltage regulation, low ripple, quiet cooling or the protections you need. Read an independent technical review of the exact PSU model and revision when available; similarly named units can use different internal designs.
+
+New graphics cards may use a high-power connector supplied by the card maker, while other models use standard PCIe 8-pin cables. Check the exact cable and PSU standard required by the card. Modular cables are not interchangeable across PSU brands or even across product families unless the PSU maker confirms the pinout.
+
+## Think about the whole build and its use
+
+Power needs change with the graphics card, CPU, overclocking settings, number of drives and sustained workload. A gaming system may draw less than a long render or combined CPU-and-GPU stress test. Leave headroom for normal load changes, but size it from the actual component list and PSU guidance instead of adding an arbitrary percentage to a calculator result.
+
+If you plan to keep a PSU through several GPU upgrades, consider its connector set, warranty, protections and future system power needs. Do not keep a unit that shows damage, unstable behaviour or cable overheating just because its label has a high wattage.
+
 ## A practical PSU checklist
 
 1. Identify the exact CPU and graphics-card models.
@@ -45,4 +57,4 @@ Leave reasonable capacity for the planned workload and transient demand, but do 
 
 Buy the power supply for the exact system you are building. There is no single wattage that is right for every PC with the same graphics-card family.
 
-*Editorial draft for owner review. Confirm current connector standards and model-specific power recommendations before publishing any PSU or GPU pairing.*
+*Editorial draft for owner review. Confirm current connector standards, exact cable requirements and model-specific system-power recommendations before publishing a PSU or GPU pairing.*

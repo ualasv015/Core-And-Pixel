@@ -10,6 +10,10 @@ sources:
     url: 'https://learn.microsoft.com/en-us/dotnet/standard/threading/threads-and-threading'
   - label: 'Intel: What Is Hyper-Threading?'
     url: 'https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html'
+  - label: 'Intel Core Ultra 7 270K Plus specifications'
+    url: 'https://www.intel.com/content/www/us/en/products/sku/245692/intel-core-ultra-7-processor-270k-plus-36m-cache-up-to-5-50-ghz/specifications.html'
+  - label: 'AMD Ryzen 7 9700X specifications'
+    url: 'https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html'
 ---
 
 ## What is a CPU core?
@@ -43,8 +47,20 @@ That can improve throughput in some workloads. It does not mean every task runs 
 - **For everyday use:** several cores and threads help the system handle background tasks alongside the app you are using. The effect depends on your workload and the processor.
 - **When comparing CPUs:** verify the core layout, supported thread count, power limits, price and platform cost for the exact models.
 
+## A real example: why core and thread counts need context
+
+The Intel Core Ultra 7 270K Plus is listed as 24 cores and 24 threads: it combines eight performance cores with 16 efficiency cores, and this model does not use Hyper-Threading. The AMD Ryzen 7 9700X is listed as eight cores and 16 threads because its eight Zen 5 cores support SMT.
+
+That does not mean Intel has three times the useful processing power, or that AMD can do only half as much work. The core types differ, software may prefer one core arrangement, and the 9700X’s threads share each core’s execution resources. Compare results from your applications instead of dividing or multiplying core counts.
+
+## Why do extra threads help some tasks more than others?
+
+A render can often split an image into many independent tiles, so more available execution resources may help finish it sooner. A game also uses multiple threads, but some work must happen in sequence: one busy game thread can set the pace while other cores wait. Extra threads can still help with background tasks such as voice chat, streaming or asset loading, but the benefit depends on the game and CPU.
+
+For everyday use, an eight-core processor can already handle browsing, office software and several background tasks smoothly. More cores are useful when your regular apps can keep them busy; they are not a requirement for a responsive PC.
+
 ## What should you remember?
 
 A core is physical processing hardware; a software thread is a scheduled path of work. SMT can let one core handle more than one hardware thread by sharing core resources. Treat the thread count as useful context, then compare real results for your workload rather than using it as a speed score.
 
-*Editorial draft for owner review. Check the wording, sources and examples before marking this guide as published.*
+*Editorial draft for owner review. Check the wording, source links and model examples before marking this guide as published.*

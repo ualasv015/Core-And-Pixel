@@ -46,4 +46,16 @@ Upscaling and frame generation are separate features. A game may support one, bo
 
 There is no single winner across rasterization, ray tracing and upscaling. Choose the games and visual features you care about, then compare current tests with matching settings.
 
+## Why ray tracing performance varies by card
+
+Graphics cards include hardware designed to accelerate ray-tracing calculations, but the number and generation of those units do not translate directly into game FPS. The game engine, denoising method, scene complexity, resolution and surrounding shader work all affect the result. NVIDIA calls its dedicated units RT cores; AMD calls them ray accelerators.
+
+A modest ray-traced shadow effect can have a small cost, while global illumination or path tracing can be dramatically more demanding. Review charts should identify the exact effect and preset. Compare the same game and scene rather than treating all “RT” results as one category.
+
+## How to compare upscalers fairly
+
+Match the output resolution and a similar image-quality target, then inspect moving scenes for fine detail, ghosting, shimmering and reconstruction artefacts. A vendor’s “Quality” label is not a guarantee that two methods look identical. Support also varies by title, GPU generation and software version.
+
+Frame generation is best judged after the game already has a responsive base frame rate. It can raise the displayed FPS counter, but it does not create the same input updates as rendering additional frames directly. Check input latency and frame pacing alongside the number shown by the overlay.
+
 *Editorial draft for owner review. Feature names, compatibility and game support change; check current manufacturer and game documentation before publishing product advice.*

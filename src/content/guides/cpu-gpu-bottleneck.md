@@ -12,6 +12,8 @@ sources:
     url: 'https://www.nvidia.com/en-us/geforce/news/nvidia-frameview-power-and-performance-benchmarking-app-download/'
   - label: 'Intel Product Specifications and comparison tool'
     url: 'https://www.intel.com/content/www/us/en/products/compare.html'
+  - label: 'Microsoft Direct3D 12: GPU video-memory budgets'
+    url: 'https://learn.microsoft.com/en-us/windows/win32/api/dxgi1_4/ns-dxgi1_4-dxgi_query_video_memory_info'
 ---
 
 A **bottleneck** is the part of a system that limits performance for a particular task at a particular time. In a game, the CPU may limit frame delivery in one scene while the GPU limits rendering in another. The term does not mean that a component is faulty or that every PC should show the same CPU and GPU usage.
@@ -44,4 +46,20 @@ Upgrade the component that limits the games and settings you care about, not the
 
 Think of a bottleneck as a workload-specific clue. Test the PC you have, change settings one at a time and use results from comparable conditions before spending money.
 
-*Editorial draft for owner review. Monitoring values are context-dependent; verify the chosen measurement tool and testing method before publishing performance claims.*
+## A worked example: the same PC can have different limits
+
+Imagine a PC with a capable graphics card and a mainstream processor. In a competitive game at 1080p with low settings, the GPU may finish rendering each frame quickly and wait for the CPU to prepare the next one. The CPU becomes more visible when the target is 200–300 FPS. Raise the resolution or enable a demanding visual effect, and the GPU may take longer per frame, shifting the limit away from the processor.
+
+A different game on the same PC can behave differently. A large strategy simulation may spend more time updating units and game logic on the CPU. A cinematic game with high-resolution textures and effects may be limited by the GPU. There is no permanent CPU-to-GPU ratio that makes every game balanced.
+
+## Why total utilisation can mislead
+
+Overall CPU utilisation averages activity across cores. If one important game thread is saturated while other cores are idle, the total may look low even though the CPU is limiting frame delivery. GPU utilisation is also a clue rather than a diagnosis: a frame cap, menu screen or loading pause can lower it without a hardware problem.
+
+Record a repeatable gameplay scene, disable overlays or background tasks that are not part of the test, and compare average FPS with 1% lows or frame-time graphs. Then change one setting at a time. If lowering resolution produces almost no extra frames, the limit may be elsewhere; if it produces a large gain, the GPU was more likely to be the constraint in that scene.
+
+## Do bottleneck calculators help?
+
+Generic calculators cannot reliably predict a PC’s performance from two component names. They usually omit the game, resolution, quality preset, frame cap, memory configuration and power settings. Use them only as rough prompts for questions to investigate. A real game test on your own PC or a well-described review is more useful.
+
+*Editorial draft for owner review. Monitoring values depend on the game and measurement tool; verify the test method before publishing performance claims.*

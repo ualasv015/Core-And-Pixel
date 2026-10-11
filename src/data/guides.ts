@@ -27,6 +27,7 @@ export const guidePlan: PlannedGuide[] = [
   { id: 'G16', title: 'GPU Upgrade Compatibility Checklist', path: '/gpus/gpu-upgrade-compatibility/', section: 'gpus', intent: 'Check case fit, power, connectors and system support.' },
   { id: 'G17', title: 'Rasterization vs. Ray Tracing and Upscaling', path: '/gpus/ray-tracing-vs-rasterization/', section: 'gpus', intent: 'Compare rendering methods, image quality and performance trade-offs.' },
   { id: 'G18', title: 'Can You Upgrade a CPU Without Changing the Motherboard?', path: '/cpus/cpu-upgrade-without-changing-motherboard/', section: 'cpus', intent: 'Verify support and weigh an upgrade against a platform change.' },
+  { id: 'G19', title: 'NVIDIA vs. AMD GPUs: Which Graphics Card Should You Buy?', path: '/gpus/nvidia-vs-amd/', section: 'gpus', intent: 'Compare gaming performance, ray tracing, upscaling, software and local prices.' },
 ];
 
 export const sectionLabels: Record<GuideSection, string> = {

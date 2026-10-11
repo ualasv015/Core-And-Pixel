@@ -34,9 +34,28 @@ Confirm the new processor uses a compatible socket and memory type. Check whethe
 
 For laptops and small prebuilt systems, the CPU may be soldered or otherwise not designed for replacement. Look up the exact service manual before planning an upgrade.
 
+## Compare the upgrade with a platform replacement
+
+Write down two totals:
+
+- **CPU-only upgrade:** processor price, any stronger cooler, shipping and any BIOS service you need.
+- **Platform replacement:** processor, motherboard, memory if the generation changes, cooler or mounting kit, shipping and any case or PSU change.
+
+Then check recent benchmarks for your actual software. A large benchmark lead at 1080p with a flagship graphics card may become a small difference at your monitor resolution. If your GPU or storage is the current limit, a CPU swap may not make the PC feel faster.
+
+Also consider what happens to your existing parts. Selling a working motherboard or memory kit can offset a platform change, while a CPU upgrade on the old board can be less disruptive. Use prices from the market where you live rather than converting a US list price into euros.
+
 ## Is the upgrade worth it?
 
 Compare the CPU cost with the performance you expect in your software. Also consider the cost of a new motherboard, memory and cooler if the current platform cannot support the chip. An upgrade on the existing board can be good value, but a small performance gain may not justify spending the budget if another component is limiting the workload.
+
+## Common upgrade mistakes
+
+- Buying a CPU because it shares a socket name without checking the exact board support list.
+- Removing the old processor before confirming the BIOS update path.
+- Assuming a cooler that physically mounts will keep a higher-power CPU quiet or within its intended limits.
+- Expecting more cores or a newer generation to improve every game by the same percentage.
+- Forgetting that an older prebuilt system may use a custom BIOS or board with a shorter support list.
 
 ## Before you order
 

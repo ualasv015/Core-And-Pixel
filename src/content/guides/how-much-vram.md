@@ -34,6 +34,18 @@ Look for repeatable symptoms in the games and settings you use: sudden frame-tim
 
 Compare tests of the exact GPU model at the resolution and settings you want. Look for a clear performance change when texture quality or another memory-heavy setting is adjusted. A useful review should state the game version and test conditions and show more than one performance metric when possible.
 
+## Allocated memory is not always required memory
+
+A game may reserve or allocate graphics memory so it can use it if needed. That reading can be larger than the amount actively needed for a particular frame. Operating systems expose a video-memory budget that changes with the display driver, other apps and system conditions. A warning or high allocation number alone does not prove that a card lacks VRAM.
+
+Look for evidence across more than one signal: compare average FPS and 1% lows, watch frame-time spikes, check for texture pop-in, and repeat the same scene after lowering texture quality. If the stutter disappears and frame times improve, memory pressure may be part of the problem. Shader compilation, storage and CPU limits can cause similar symptoms, so test methodically.
+
+## How to compare two cards with different capacities
+
+First compare their performance at the same resolution and settings. Then check whether a game review reports texture quality, VRAM use, frame-time consistency and any difference between the cards. A card with more VRAM may keep higher-resolution assets available, but a slower GPU can still produce fewer frames. A faster GPU with less memory can also hit a capacity limit in a demanding title.
+
+Consider the software you use beyond games: 3D scenes, video timelines, large textures and local machine-learning models can have different memory needs. Check the application’s own requirements and tests rather than borrowing a gaming rule for a creative workload.
+
 ## Shared memory on integrated graphics is different
 
 An integrated GPU usually uses system memory rather than a separate graphics-memory bank. This memory is shared with the CPU, so it is not equivalent to the dedicated VRAM on a graphics card. Some system utilities may label or display these memory pools in ways that are easy to confuse; check the GPU manufacturer's documentation for your system.
@@ -48,4 +60,4 @@ An integrated GPU usually uses system memory rather than a separate graphics-mem
 
 Do not buy a graphics card from its VRAM number alone. Choose enough memory for the workloads you actually run, then compare the complete GPU using current tests.
 
-*Editorial draft for owner review. Avoid fixed VRAM prescriptions; game requirements and GPU models change, so use current, workload-specific evidence before publication.*
+*Editorial draft for owner review. Avoid fixed VRAM prescriptions; game and application requirements change, so use current, workload-specific evidence before publication.*

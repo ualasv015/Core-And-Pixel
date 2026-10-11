@@ -36,6 +36,20 @@ Many desktop computers with an iGPU can also use a dedicated graphics card. The 
 
 On most laptops, the GPU is built into the system and cannot be replaced like a desktop graphics card. Some laptops include both integrated and dedicated graphics from the factory, with the system switching between them based on power and workload.
 
+## Where should you connect the monitor?
+
+On a desktop with a separate graphics card, connect the display cable to the graphics card’s ports. The motherboard’s HDMI or DisplayPort output may connect to the processor’s integrated graphics and can show no signal if the CPU does not include an iGPU or the board firmware has disabled it.
+
+If you remove a graphics card for troubleshooting, check the CPU specifications first. Many processors have basic integrated graphics that can provide display output; some models explicitly require a discrete graphics card. Integrated graphics can be a useful fallback for diagnosis, but they may not support the same game settings, display configuration or creative workloads as the separate card.
+
+## What does shared system memory mean?
+
+An iGPU usually shares the PC’s DDR memory with the CPU. The system may reserve some memory for graphics and let the GPU request more as needed. This is different from dedicated VRAM physically installed on a graphics card. Memory speed and channel configuration can strongly affect integrated graphics, so a single memory stick may perform differently from a matched dual-channel kit.
+
+## Check media and display features too
+
+For everyday use, compare supported video codecs, maximum display count and output resolution, not only 3D gaming results. A basic iGPU can be enough for desktop work and video playback even when it is not suitable for demanding games. Confirm support on the exact CPU and motherboard, since ports and features can vary by system.
+
 ## Which option should you choose?
 
 - **Everyday desktop use:** integrated graphics may be enough if your processor includes them and your apps are not graphics-intensive.
@@ -45,4 +59,4 @@ On most laptops, the GPU is built into the system and cannot be replaced like a 
 
 The simplest rule is to choose from the workload. Confirm that the processor actually has integrated graphics, then compare the performance and complete system cost of the available options.
 
-*Editorial draft for owner review. Graphics performance is model-specific; verify current tests and model specifications before adding product recommendations.*
+*Editorial draft for owner review. Graphics performance and display features are model-specific; verify current tests and processor and motherboard specifications before adding product recommendations.*

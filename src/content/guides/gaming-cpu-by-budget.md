@@ -12,6 +12,8 @@ sources:
     url: 'https://www.intel.com/content/www/us/en/products/compare.html'
   - label: 'AMD Ryzen desktop processor specifications'
     url: 'https://www.amd.com/en/products/processors/desktops/ryzen.html'
+  - label: 'TechSpot: Core Ultra 7 270K Plus review and gaming tests'
+    url: 'https://www.techspot.com/review/3107-intel-core-ultra-7-270k-plus/'
 ---
 
 Choosing a gaming CPU is easier when you start with your total budget and the games you play. A processor can be excellent in one game and less impressive in another, so a single core count or benchmark score is not enough to make a buying decision.
@@ -48,4 +50,24 @@ If the gaming results are similar, consider the full platform cost, power use, c
 
 There is no universal “best gaming CPU for every budget.” The best choice is the processor-platform combination that meets your own performance target without spending money on features you do not need.
 
-*Editorial draft for owner review. No model or price recommendations are included; add them only after current, market-specific research and comparable testing.*
+## Match your CPU budget to your gaming target
+
+Think about the type of frame rate you want before deciding how much to spend:
+
+- **1080p at a high refresh rate:** competitive games and low graphics settings can expose CPU differences because the GPU can render frames quickly. A faster CPU may matter if you are trying to maintain very high frame rates or improve 1% lows.
+- **1440p at high settings:** the CPU still matters, but the graphics card is more likely to set the limit in demanding games. Compare both CPU and GPU tests at your intended settings.
+- **4K or heavy ray tracing:** the graphics workload is often the larger limit. A top-tier CPU may add little if the current GPU cannot render frames any faster.
+
+These are tendencies, not rules. A simulation, strategy game or competitive title can remain CPU-limited at a higher resolution, while a visually demanding game can be GPU-limited at 1080p.
+
+## Example: balanced gaming versus CPU-heavy work
+
+The current Intel Core Ultra 7 270K Plus and AMD Ryzen 7 9700X illustrate why a budget decision depends on more than a game average. In TechSpot’s 14-game test, the Intel chip averaged about 3% more FPS and had stronger 1% lows, while individual games still varied. In the same review, the Intel processor was much faster in some heavily threaded productivity tests, but it used more power in several gaming scenarios.
+
+If you mainly play games at 1440p with a midrange GPU, put the saved money toward the GPU, SSD or monitor if a more expensive CPU would not change your actual frame rate. If you also render or compile projects for work, the CPU’s productivity result may justify spending more. Compare current prices for the CPU, motherboard and cooler together; the cheapest chip can lead to the more expensive build.
+
+## Avoid paying for an unused upgrade path
+
+Do not select a CPU solely because a future flagship might fit the same socket. Check the motherboard maker’s exact support list, BIOS policy and the platform’s announced roadmap. A future upgrade has value only if the board supports it, the replacement price makes sense and the current CPU does not already meet your needs.
+
+*Editorial draft for owner review. The performance example comes from a specific 14-game test and is not a universal ranking. Recheck model prices, game results and platform support before publication.*

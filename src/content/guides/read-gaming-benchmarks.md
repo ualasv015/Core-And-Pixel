@@ -56,4 +56,24 @@ When comparing cards, read the settings carefully. Keep native rendering tests s
 
 A ranking is only as useful as its test method. Read the conditions next to the score, and treat small differences cautiously when test variation or measurement methods could explain them.
 
-*Editorial draft for owner review. Our future rankings will list sources, test conditions and dates beside the results rather than combining unlike scores.*
+## Read CPU and GPU tests differently
+
+CPU reviews often use a very fast graphics card and lower resolution so the GPU does not cap the frame rate. This makes differences between processors easier to see, but it can overstate the gap you would notice with a midrange GPU at 1440p. Look for both a CPU-focused test and results closer to your own graphics card and resolution.
+
+GPU reviews should keep the processor and test scene consistent while varying the graphics card. A review may test native resolution, ray tracing, upscaling and frame generation in separate sections. Do not combine those into one score unless the method explains how each feature is weighted.
+
+## Work out whether a performance gap matters
+
+To calculate a relative FPS difference, use:
+
+**Difference (%) = (higher result − lower result) ÷ lower result × 100**
+
+If one card averages 100 FPS and another 110 FPS in the same test, the second result is 10% higher. That does not mean every game will be 10% faster, and it may not be visible if both cards already exceed your monitor’s refresh target. Check low-percentile FPS and frame times as well, because consistency can matter more than a small average lead.
+
+When a chart shows a tiny gap, read the review’s run-to-run variation and test count. A result within a few percent may be indistinguishable in one title, while a repeated gap across a large, well-described suite can be more meaningful.
+
+## Treat vendor claims as scoped results
+
+Manufacturer performance charts can be useful when they name the test system, apps, settings and date. Read the fine print: the selected games, memory speed, power profile and feature settings may favour a particular product. Use independent reviews with disclosed test conditions to see whether a claim holds across a broader workload.
+
+*Editorial draft for owner review. Rankings will list sources, test conditions and dates beside results; do not combine unlike scores into one unexplained number.*

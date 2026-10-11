@@ -42,4 +42,16 @@ PCIe has a history of backward compatibility, but a mixed-generation connection 
 
 For most upgrades, the motherboard and device manuals provide the compatibility answer. PCIe versions and lane counts help describe the connection; they are not stand-alone performance scores.
 
-*Editorial draft for owner review. Confirm the exact slot layout and lane-sharing notes against the motherboard manual before publishing specific build advice.*
+## A practical example: a full-length slot can be x8
+
+A graphics card can have a long connector and still operate over eight electrical lanes. The motherboard manual may describe the top slot as x16 when one card is installed, then explain that it changes to x8 if a second expansion card is added. Some boards also route M.2 sockets through the chipset or share connections with SATA ports.
+
+That layout is usually a design choice, not proof that the card is incompatible. Check the motherboard manual for the exact slot configuration and any lane-sharing notes. If a card or SSD runs at fewer lanes than expected, confirm the connection in firmware or a system-information tool and compare a real workload before replacing parts.
+
+## Does a newer generation make games faster?
+
+Only if the device or task benefits from the extra link bandwidth. Many GPUs do not use the full capacity of their PCIe connection in every game, so a compatible card can work in a lower-generation slot with little practical difference. Other devices, especially high-throughput storage or accelerator cards, may gain more from a faster link.
+
+Use a review that tests the same card at the relevant PCIe generations if the difference matters to your purchase. Paying extra for a motherboard with a newer PCIe label is difficult to justify if your devices and workload cannot use it.
+
+*Editorial draft for owner review. Confirm exact slot layouts and lane-sharing notes against the motherboard manual before publishing specific build advice.*

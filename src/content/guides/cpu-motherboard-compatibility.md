@@ -42,14 +42,27 @@ Check the memory generation and supported configuration for both the CPU and mot
 
 These checks apply to desktop upgrades. Laptop processors are often soldered to the motherboard, and many prebuilt systems use parts that are not intended for a CPU upgrade. Look up the service manual for the exact computer before planning one.
 
+## 5. Check board power delivery and features
+
+A board may list a processor as supported but still differ in how well it handles sustained high power. Read the motherboard manual and credible technical reviews for information about its voltage-regulator design, cooling and power limits, especially if you plan to use a high-end CPU for long renders. A larger chipset number by itself does not guarantee better power delivery.
+
+Also compare the features you actually need: M.2 slots, USB ports, Wi-Fi, expansion slots, display outputs and fan headers. A cheaper compatible board can be the smarter choice if it has the right ports and can run the CPU at its intended settings.
+
+## 6. Check memory configuration and the QVL
+
+The CPU and board specifications state the supported memory generation and official speed limits. Faster memory profiles such as XMP or EXPO are memory overclocking profiles; actual stability depends on the CPU’s memory controller, board firmware and the exact kit.
+
+The board’s qualified vendor list (QVL) is a list of memory kits the maker has tested. A kit missing from the list is not automatically incompatible, but the QVL is helpful when you are troubleshooting instability. For a new build, a matched two-module kit is usually simpler to configure than mixing separate memory kits.
+
 ## A quick compatibility checklist
 
 1. Record the full CPU model and the exact motherboard model and revision.
 2. Confirm the socket matches on both product pages.
 3. Find the CPU on the board maker's support list.
 4. Check the minimum BIOS version and update method.
-5. Confirm memory type, cooler support and case or power requirements.
-6. Recheck the list immediately before purchase; support information can change as firmware is updated.
+5. Confirm memory type and consult the memory QVL if you need help choosing a kit.
+6. Check board power delivery, cooler support, case clearance and PSU requirements.
+7. Recheck the support list immediately before purchase; firmware support can change.
 
 If any one of these checks is unclear, wait before ordering. The board manufacturer's support page or system vendor can confirm whether the parts work together.
 

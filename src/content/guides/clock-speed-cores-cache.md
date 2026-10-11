@@ -10,6 +10,12 @@ sources:
     url: 'https://www.intel.com/content/www/us/en/products/compare.html'
   - label: 'AMD Ryzen desktop processor specifications'
     url: 'https://www.amd.com/en/products/processors/desktops/ryzen.html'
+  - label: 'Intel Core Ultra 7 270K Plus specifications'
+    url: 'https://www.intel.com/content/www/us/en/products/sku/245692/intel-core-ultra-7-processor-270k-plus-36m-cache-up-to-5-50-ghz/specifications.html'
+  - label: 'AMD Ryzen 7 9700X specifications'
+    url: 'https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html'
+  - label: 'AMD 3D V-Cache technology'
+    url: 'https://www.amd.com/en/products/processors/technologies/3d-v-cache.html'
 ---
 
 When you compare CPUs, three numbers appear again and again: clock speed, core count and cache size. Each describes a different part of the processor. None is a score that can rank two CPUs on its own.
@@ -51,4 +57,25 @@ Check the processor's official specification page for its core layout, frequency
 
 Think of clock speed, cores and cache as clues about a CPU's design. The best buying decision comes from combining those clues with workload-specific tests and the total cost of the system.
 
-*Editorial draft for owner review. Confirm the wording and sources before marking this guide as published.*
+## IPC explains why GHz is not a direct speed rating
+
+Instructions per cycle (IPC) describes how much useful work a processor can complete in each clock cycle for a given instruction mix. It is affected by the core design, the software and the data available to the CPU. A processor with a lower clock can still finish a task sooner if it does more work per cycle or has a better design for that task.
+
+For example, Intel’s Core Ultra 7 270K Plus and AMD’s Ryzen 7 9700X both advertise boost clocks up to 5.5 GHz, but that number does not make them equivalent. Their cores, cache, memory behaviour, power limits and application results differ. Boost is also a maximum under suitable conditions; a long render can run at a different frequency than a short single-core task.
+
+## Cache is useful when the workload can use it
+
+L1 and L2 caches are smaller and close to individual cores; L3 is generally larger and shared in ways that vary by design. If the CPU finds needed data in cache, it can avoid waiting for slower system memory. If it misses, the benefit of a large cache is reduced for that particular request.
+
+This helps explain AMD’s 3D V-Cache gaming models: extra L3 cache can improve games that repeatedly access a working set that fits well in cache. Other games and most non-gaming tasks may gain much less. The useful question is not “Which CPU has the most cache?” but “Do recent tests show that this application benefits from it?”
+
+## Read a specification in context
+
+1. Check base and boost frequencies, then remember neither is a guaranteed all-core operating speed.
+2. Check whether the listed cores are all the same type or a mixture of performance and efficiency cores.
+3. Look at cache levels and memory support as clues about design, not as stand-alone scores.
+4. Compare independent benchmarks in the apps you use and note the power limits and cooling.
+
+When two specification sheets appear close, benchmark results and the complete platform price are more useful than one headline number.
+
+*Editorial draft for owner review. Confirm the wording, source links and model examples before marking this guide as published.*

@@ -54,7 +54,7 @@ button, input, textarea, select { font: inherit; }
 .prose ul, .prose ol { padding-left: 1.3rem; }
 .prose li { margin: .35rem 0; }
 .prose blockquote { margin: 1.3rem 0; padding: .3rem 0 .3rem 1rem; border-left: 3px solid var(--amber); color: var(--navy); }
-.prose table { width: 100%; border-collapse: collapse; }
+.prose table { display: block; width: 100%; max-width: 100%; overflow-x: auto; border-collapse: collapse; white-space: nowrap; }
 .prose th, .prose td { padding: .7rem; border: 1px solid var(--line); text-align: left; }
 .prose th { background: var(--mist); color: var(--navy); }
 .notice { padding: 1rem 1.1rem; border: 1px solid #D7E5E1; border-radius: .65rem; background: var(--mint); color: var(--navy); }

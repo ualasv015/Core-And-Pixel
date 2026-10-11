@@ -1,0 +1,59 @@
+---
+title: 'How to Read CPU and GPU Gaming Benchmarks'
+description: 'Learn how to compare gaming benchmark results by test conditions, average FPS, low-percentile performance, frame times and rendering features.'
+summary: 'A benchmark result is meaningful only when you know the game, scene, settings, resolution, test system and measurement method. Compare average FPS and frame consistency, and separate different rendering features.'
+path: '/benchmarks/read-gaming-benchmarks/'
+section: 'benchmarks'
+status: 'review'
+sources:
+  - label: 'NVIDIA FrameView user guide: metrics and benchmark reports'
+    url: 'https://images.nvidia.com/content/geforce/technologies/frameview/frameview-1-7-user-guide-web-version.pdf'
+  - label: 'NVIDIA FrameView: performance and power benchmarking metrics'
+    url: 'https://www.nvidia.com/en-us/geforce/news/nvidia-frameview-power-and-performance-benchmarking-app-download/'
+  - label: 'AMD FSR technologies: upscaling and frame generation features'
+    url: 'https://www.amd.com/en/products/graphics/technologies/fidelityfx/super-resolution.html'
+---
+
+A gaming benchmark is a measurement of a particular system running a particular test. It does not predict every game or every PC. Before you compare two CPU or GPU results, check what was tested and how the frames were measured.
+
+## Check the test conditions first
+
+Look for these details beside the chart:
+
+- Game, version, scene or built-in benchmark.
+- Resolution and graphics preset.
+- Ray tracing, upscaling, frame generation or other features enabled.
+- CPU, GPU, memory, motherboard and driver version.
+- Whether the test used a repeatable run, a built-in tool or recorded gameplay.
+- Measurement tool, run length and method for calculating averages or lows.
+
+If these conditions differ, the results may not be directly comparable. A GPU test at one resolution does not automatically establish its ranking at another. A CPU comparison with a different graphics card or memory setup may also change the result.
+
+## What does average FPS tell you?
+
+Average frames per second (**FPS**) gives a broad measure of how many frames were produced over the test. It is useful for a simple comparison, but it can hide short slowdowns. Two systems with similar averages may feel different if one delivers frames more consistently.
+
+## What are 1% lows and frame times?
+
+Low-percentile FPS metrics summarise slower frames within a run. The exact calculation can vary by tool, so check the review's definition. Frame time measures how long each frame takes to render; sudden spikes can correspond to visible stutter. These measures add context to the average rather than replacing it.
+
+Do not compare a 1% low from one tool with a differently defined “minimum FPS” from another. Minimums can be heavily affected by a single event, loading pause or background task.
+
+## Separate rendering features
+
+Ray tracing changes the rendering workload. Upscaling reconstructs an output image from a lower-resolution render, while frame generation creates additional displayed frames between rendered ones. These features can change image quality, latency and the way frame rate is counted.
+
+When comparing cards, read the settings carefully. Keep native rendering tests separate from upscaling or frame-generation results unless the purpose is specifically to compare those features. A chart should say whether the FPS number counts rendered frames, generated frames or both.
+
+## A fair way to compare results
+
+1. Choose the games and settings that match your use.
+2. Compare results from the same review or a consistent test method.
+3. Check the resolution, graphics preset and feature settings.
+4. Read averages together with lows or frame-time data.
+5. Look for repeated results across games rather than relying on one title.
+6. Check publication date and hardware drivers; updates can change performance.
+
+A ranking is only as useful as its test method. Read the conditions next to the score, and treat small differences cautiously when test variation or measurement methods could explain them.
+
+*Editorial draft for owner review. Our future rankings will list sources, test conditions and dates beside the results rather than combining unlike scores.*

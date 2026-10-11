@@ -1,16 +1,19 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../components/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideCard from '../../components/GuideCard.astro';
 import { guidePlan } from '../../data/guides';
 const guide = guidePlan.find((item) => item.id === 'G15')!;
+const entries = await getCollection('guides');
+const available = entries.find((entry) => entry.data.path === guide.path);
 ---
 
 <BaseLayout title="How to read PC benchmarks" description="Learn to compare gaming and productivity results by test suite, settings, frame rate, frame times and other test conditions." currentPath="/benchmarks/" breadcrumbs={[{ label: 'Benchmarks' }]}>
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Benchmarks' }]} />
   <section class="page-hero"><p class="kicker">Benchmarks</p><h1>Read the test, not just the score.</h1><p>Results only make sense when you know what was measured, how the test was run and which workload it represents.</p></section>
   <section class="section-block"><h2 class="section-heading">Start with the conditions</h2><div class="grid-3 principles"><article class="surface"><h3>Same workload</h3><p>Do not combine gaming, rendering and synthetic tests into one unexplained score.</p></article><article class="surface"><h3>Same settings</h3><p>Resolution, game version, preset and test system can change the result.</p></article><article class="surface"><h3>Show the limits</h3><p>Keep dates, source links and gaps in the evidence visible beside a ranking.</p></article></div></section>
-  <GuideCard title={guide.title} description={guide.intent} label="Planned guide" />
+  <GuideCard title={guide.title} description={guide.intent} href={available ? guide.path : undefined} label={available?.data.status === 'review' ? 'Draft · owner review' : available?.data.status === 'published' ? 'Reviewed guide' : 'Planned guide'} />
   <p><a href="/how-we-rank/">Read how Core &amp; Pixel plans to evaluate ranking evidence →</a></p>
 </BaseLayout>
 

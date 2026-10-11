@@ -8,15 +8,21 @@ export async function getStaticPaths() {
   const entries = await getCollection('guides');
   return entries.map((entry) => ({
     params: { slug: entry.data.path.replace(/^\//, '').replace(/\/$/, '') },
-    props: { entry },
+    props: {
+      entry,
+      relatedEntries: entries
+        .filter((related) => related.data.section === entry.data.section && related.id !== entry.id)
+        .slice(0, 3),
+    },
   }));
 }
 
-const { entry } = Astro.props;
+const { entry, relatedEntries } = Astro.props;
 const { Content, headings } = await render(entry);
 const section = sectionLabels[entry.data.section];
 const crumbs = [{ label: section, href: `/${entry.data.section}/` }, { label: entry.data.title }];
 const noindex = entry.data.status !== 'published';
+const reviewLabel = noindex ? 'Editorial draft · owner review pending' : 'Editorial guide';
 ---
 
 <BaseLayout
@@ -33,23 +39,23 @@ const noindex = entry.data.status !== 'published';
         <p class="kicker">{section} explainer</p>
         <h1>{entry.data.title}</h1>
         <p class="article-deck">{entry.data.description}</p>
-        <p class="article-meta">Core &amp; Pixel · Editorial draft · Owner review pending</p>
+        <p class="article-meta">Core &amp; Pixel · {reviewLabel}</p>
       </header>
       {noindex && <p class="draft-banner">Draft for review. This page is noindex until the owner approves the wording and sources.</p>}
       <aside class="short-answer" aria-label="Short answer">
         <p class="eyebrow">The short answer</p>
-        <p>A core is processing hardware inside the CPU. A software thread is a path of work that the operating system schedules. Some cores can handle more than one hardware thread by sharing resources; that does not make them equivalent to two physical cores.</p>
+        <p>{entry.data.summary}</p>
       </aside>
       <div class="prose article-prose"><Content /></div>
       <section class="sources-block" aria-labelledby="sources-title">
         <h2 id="sources-title">Sources</h2>
         <ul class="source-list">{entry.data.sources.map((source) => <li><a href={source.url} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul>
       </section>
-      <div class="related-box"><strong>Keep learning</strong><p><a href="/cpus/">Browse the CPU hub</a> · <a href="/how-we-rank/">Read our evidence method</a></p></div>
+      <div class="related-box"><strong>Keep learning</strong><p><a href={`/${entry.data.section}/`}>Browse {section} guides</a> · <a href="/how-we-rank/">Read our evidence method</a></p></div>
     </article>
     <aside class="article-aside">
       <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>{headings.filter((heading) => heading.depth === 2).map((heading, index) => <li><a href={`#${heading.slug}`}><span>{String(index + 1).padStart(2, '0')}</span>{heading.text}</a></li>)}</ol></nav>
-      <div class="related-list"><p class="eyebrow">Related guides</p><a href="/cpus/">Explore CPU guides</a><a href="/cpus/performance-rankings/">CPU ranking layout</a></div>
+      <div class="related-list"><p class="eyebrow">Related guides</p>{relatedEntries.map((related) => <a href={related.data.path}>{related.data.title}</a>)}<a href={`/${entry.data.section}/`}>Explore all {section} guides</a></div>
     </aside>
   </div>
 </BaseLayout>

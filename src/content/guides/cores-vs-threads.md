@@ -1,6 +1,7 @@
 ---
 title: 'CPU cores vs. threads: what each one does'
 description: 'Learn what a CPU core and a software thread are, how simultaneous multithreading works, and why more threads do not automatically make a processor faster.'
+summary: 'A core is physical processing hardware; a software thread is a scheduled path of work. SMT lets a core handle multiple hardware threads, but they share resources and do not guarantee proportional speed gains.'
 path: '/cpus/cores-vs-threads/'
 section: 'cpus'
 status: 'review'

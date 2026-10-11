@@ -1,15 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../components/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideCard from '../../components/GuideCard.astro';
 import { guidePlan } from '../../data/guides';
+const entries = await getCollection('guides');
+const available = new Map(entries.map((entry) => [entry.data.path, entry.data.status] as const));
 const guides = guidePlan.filter((guide) => guide.section === 'pc-building');
 ---
 
 <BaseLayout title="PC building and compatibility guides" description="Check CPU and motherboard support, PCIe, power supplies and upgrade fit with practical PC building guides." currentPath="/pc-building/" breadcrumbs={[{ label: 'PC Building' }]}>
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'PC Building' }]} />
   <section class="page-hero"><p class="kicker">PC Building</p><h1>Check the fit before you build.</h1><p>Compatibility depends on the exact parts, revision, BIOS, case dimensions and connectors. Use model-specific support pages for the final check.</p></section>
-  <section class="section-block"><h2 class="section-heading">Build with fewer surprises</h2><p class="section-intro">The planned guides cover the checks that are easiest to miss.</p><div class="grid-3 planned-grid">{guides.map((guide, index) => <GuideCard title={guide.title} description={guide.intent} label="Planned guide" accent={index === 1 ? 'amber' : 'teal'} />)}</div></section>
+  <section class="section-block"><h2 class="section-heading">Build with fewer surprises</h2><p class="section-intro">Draft articles and topics in the launch plan.</p><div class="grid-3 planned-grid">{guides.map((guide, index) => <GuideCard title={guide.title} description={guide.intent} href={available.has(guide.path) ? guide.path : undefined} label={available.get(guide.path) === 'review' ? 'Draft · owner review' : available.get(guide.path) === 'published' ? 'Reviewed guide' : 'Planned guide'} accent={index === 1 ? 'amber' : 'teal'} />)}</div></section>
   <aside class="notice"><strong>Use the manufacturer's compatibility list.</strong><p>A matching socket alone does not prove that a motherboard supports a processor. Check the exact board model, revision and BIOS version.</p></aside>
 </BaseLayout>
 

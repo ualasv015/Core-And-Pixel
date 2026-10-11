@@ -7,6 +7,7 @@ const guides = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    summary: z.string(),
     path: z.string().startsWith('/').endsWith('/'),
     section: z.enum(['cpus', 'gpus', 'pc-building', 'benchmarks']),
     status: z.enum(['review', 'published']),

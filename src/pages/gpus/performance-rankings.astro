@@ -1,12 +1,62 @@
 ---
 import BaseLayout from '../../components/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const rasterRows = [
+  { gpu: 'NVIDIA GeForce RTX 5090', p1080: '100%', p1440: '100%', p4k: '100%', us: 'No reputable listing', es: '€6,999.99' },
+  { gpu: 'NVIDIA GeForce RTX 5080', p1080: '81.9%', p1440: '76.7%', p4k: '69.8%', us: '$1,653.99', es: '€1,749.99' },
+  { gpu: 'NVIDIA GeForce RTX 5070 Ti', p1080: '76.2%', p1440: '69.8%', p4k: '61.9%', us: '$1,179.99', es: '€1,361.23' },
+  { gpu: 'AMD Radeon RX 9070 XT', p1080: '76.9%', p1440: '69.7%', p4k: '59.4%', us: '$799.99', es: '€919.00' },
+  { gpu: 'AMD Radeon RX 9070', p1080: '69.1%', p1440: '62.1%', p4k: '52.1%', us: '$699.99', es: '€843.20' },
+  { gpu: 'NVIDIA GeForce RTX 5070', p1080: '65.1%', p1440: '57.6%', p4k: '49.0%', us: '$779', es: '€899.99' },
+];
+
+const rayTracingRows = [
+  { gpu: 'NVIDIA GeForce RTX 5090', p1080: '100%', p1440: '100%', p4k: '100%', us: 'No reputable listing', es: '€6,999.99' },
+  { gpu: 'NVIDIA GeForce RTX 5080', p1080: '78.2%', p1440: '73.4%', p4k: '65.7%', us: '$1,653.99', es: '€1,749.99' },
+  { gpu: 'NVIDIA GeForce RTX 5070 Ti', p1080: '71.9%', p1440: '65.7%', p4k: '57.3%', us: '$1,179.99', es: '€1,361.23' },
+  { gpu: 'AMD Radeon RX 9070 XT', p1080: '61.9%', p1440: '55.1%', p4k: '47.0%', us: '$799.99', es: '€919.00' },
+  { gpu: 'NVIDIA GeForce RTX 5070', p1080: '58.9%', p1440: '51.1%', p4k: '35.4%', us: '$779', es: '€899.99' },
+  { gpu: 'AMD Radeon RX 9070', p1080: '53.8%', p1440: '47.2%', p4k: '40.2%', us: '$699.99', es: '€843.20' },
+];
 ---
 
-<BaseLayout title="GPU performance rankings by workload" description="A planned GPU ranking structure that separates resolution, rasterization, ray tracing and test conditions." currentPath="/gpus/" noindex breadcrumbs={[{ label: 'GPUs', href: '/gpus/' }, { label: 'Performance rankings' }]}>
+<BaseLayout title="GPU Performance Rankings by Resolution" description="Compare current graphics cards in separate rasterization and ray-tracing benchmark snapshots at 1080p, 1440p and 4K, with US and Spain price examples." currentPath="/gpus/" noindex breadcrumbs={[{ label: 'GPUs', href: '/gpus/' }, { label: 'Performance rankings' }]}>
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'GPUs', href: '/gpus/' }, { label: 'Performance rankings' }]} />
-  <section class="page-hero"><p class="kicker">GPU rankings</p><h1>Compare graphics cards by resolution and rendering method.</h1><p>Rasterization, ray tracing and upscaling results will remain separate when the tests are not directly comparable.</p></section>
-  <div class="notice"><strong>Ranking data is not published yet.</strong><p>This page shows the intended structure. Product names, scores, prices and conclusions will appear only after the sources and test conditions are reviewed.</p></div>
-  <section class="section-block"><h2 class="section-heading">Evidence we will show</h2><ul class="check-list"><li>Resolution, game or application, graphics preset and test date.</li><li>Average frame rate and other metrics only when a source reports them consistently.</li><li>US dollar and country-specific euro listings with the store and check date.</li><li>Known gaps and differences between test systems.</li></ul></section>
-  <p><a href="/how-we-rank/">Read the planned ranking methodology →</a></p>
+  <section class="page-hero"><p class="kicker">GPU rankings · draft</p><h1>Compare graphics cards by resolution and rendering method.</h1><p>Rasterization and ray tracing are separate tests. The fastest card overall may not be the best choice for your games, monitor or budget.</p></section>
+  <aside class="method-bar"><div><strong>Benchmark snapshot</strong><p>Tom’s Hardware GPU hierarchy · last updated June 24, 2026</p></div><a class="button button--secondary" href="/how-we-rank/">Read our ranking method</a></aside>
+
+  <section class="section-block" id="raster"><h2 class="section-heading">Rasterization performance</h2><p class="section-intro">These relative indices compare conventional rendering at each resolution. The table shows selected recent cards from the source hierarchy, sorted by the 1440p score; it is not a complete list of every card ever tested.</p>
+    <div class="table-wrap"><table class="data-table"><caption class="sr-only">Selected GPU rasterization results and market prices</caption><thead><tr><th scope="col">Graphics card</th><th scope="col">1080p</th><th scope="col">1440p</th><th scope="col">4K</th><th scope="col">US price¹</th><th scope="col">Spain price²</th></tr></thead><tbody>
+      {rasterRows.map((row) => <tr><th scope="row">{row.gpu}</th><td>{row.p1080}</td><td>{row.p1440}</td><td>{row.p4k}</td><td>{row.us}</td><td>{row.es}</td></tr>)}
+    </tbody></table></div>
+    <p class="source-note">The performance percentages are the source’s relative index, with the RTX 5090 as the 100% reference at each resolution. Tom’s Hardware calculates the raster score as an equal-weighted geometric mean across 11 native-resolution games, using a mix of High and Ultra settings. This is not a universal score or a promise of a particular frame rate. <a href="https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html">Read the full GPU hierarchy and test conditions.</a></p>
+  </section>
+
+  <section class="section-block" id="ray-tracing"><h2 class="section-heading">Ray-tracing performance</h2><p class="section-intro">Ray tracing changes the workload, so these percentages come from a different source table and should not be mixed with the rasterization results above.</p>
+    <div class="table-wrap"><table class="data-table"><caption class="sr-only">Selected GPU ray-tracing results and market prices</caption><thead><tr><th scope="col">Graphics card</th><th scope="col">1080p Ultra RT</th><th scope="col">1440p Ultra RT</th><th scope="col">4K Ultra RT</th><th scope="col">US price¹</th><th scope="col">Spain price²</th></tr></thead><tbody>
+      {rayTracingRows.map((row) => <tr><th scope="row">{row.gpu}</th><td>{row.p1080}</td><td>{row.p1440}</td><td>{row.p4k}</td><td>{row.us}</td><td>{row.es}</td></tr>)}
+    </tbody></table></div>
+    <p class="source-note">This source’s ray-tracing index also uses the RTX 5090 as the 100% reference at each resolution. The review tests natively, without DLSS, FSR, XeSS or frame generation. It tests eight ray-tracing titles separately from the 11-game raster suite. <a href="https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html">See the source’s ray-tracing charts and test setup.</a></p>
+  </section>
+
+  <section class="section-block"><h2 class="section-heading">Price notes</h2><div class="price-note"><p><strong>¹ US:</strong> example lowest listed prices from PC Gamer’s US retailer checks, updated October 8, 2026. Its guide reported the RTX 5090 unavailable from reputable US sellers. <strong>² Spain:</strong> examples from PcComponentes listings checked October 11, 2026; where possible, the shown price is a card sold by PcComponentes. Partner model, seller, stock and delivery can change the price. US prices may exclude sales tax; Spain prices include VAT. We do not convert one market’s price into the other currency.</p><p class="price-sources"><a href="https://www.pcgamer.com/hardware/graphics-cards/graphics-card-price-watch-deals/">US price watch</a> · <a href="https://www.pccomponentes.com/categorias/tarjetas-graficas/nvidia-rtx-5090">RTX 5090</a> · <a href="https://www.pccomponentes.com/categorias/tarjetas-graficas/nvidia-rtx-5080">RTX 5080</a> · <a href="https://www.pccomponentes.com/categorias/tarjetas-graficas/nvidia-rtx-5070-ti">RTX 5070 Ti</a> · <a href="https://www.pccomponentes.com/categorias/tarjetas-graficas/nvidia-rtx-5070">RTX 5070</a> · <a href="https://www.pccomponentes.com/categorias/tarjetas-graficas/amd-rx-9070-xt">RX 9070 XT</a> · <a href="https://www.pccomponentes.com/categorias/tarjetas-graficas/amd-rx-9070">RX 9070</a></p></div></section>
+
+  <section class="section-block"><h2 class="section-heading">What the snapshot suggests</h2><ul class="takeaways"><li><strong>For 1440p conventional gaming:</strong> the RTX 5070 Ti and RX 9070 XT are nearly tied in this source’s raster index. The sampled Radeon listing costs substantially less in both markets.</li><li><strong>For ray tracing:</strong> the GeForce models lead these selected source results, especially as resolution increases. Check the games and RT settings you actually use.</li><li><strong>For 4K:</strong> performance headroom matters, but memory, upscaling support, power and price also affect the experience.</li><li><strong>For a purchase today:</strong> the displayed prices make several high-end cards poor value. Compare the exact model and current offer rather than relying on MSRP or the position alone.</li></ul><p><a href="/gpus/nvidia-vs-amd/">Read our beginner’s guide to choosing between NVIDIA and AMD →</a></p></section>
+  <p class="muted"><small>Editorial draft for owner review. Benchmark snapshot: June 24, 2026. US price snapshot: October 8, 2026. Spain price snapshot: October 11, 2026. Recheck the linked tests and listings before publication. Rankings remain noindex while under review.</small></p>
 </BaseLayout>
+
+<style>
+  .method-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border-radius: .7rem; background: var(--mist); }
+  .method-bar strong { color: var(--teal-dark); font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; }
+  .method-bar p { margin: .35rem 0 0; color: var(--navy); font-size: .8rem; font-weight: 700; }
+  .section-intro { max-width: 55rem; }
+  .source-note { margin-top: .8rem; color: var(--muted); font-size: .78rem; }
+  .price-note { padding: 1rem; border-radius: .55rem; background: #FFF5E1; }
+  .price-note p { margin: 0; color: var(--body); font-size: .8rem; }
+  .price-note .price-sources { margin-top: .65rem; }
+  .takeaways { max-width: 58rem; padding-left: 1.25rem; }
+  .takeaways li { margin: .6rem 0; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  @media (max-width: 620px) { .method-bar { align-items: flex-start; flex-direction: column; } }
+</style>

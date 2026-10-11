@@ -1,32 +1,60 @@
 ---
 import BaseLayout from '../../components/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const gamingRows = [
+  { rank: '1', cpu: 'AMD Ryzen 7 9850X3D', score: '100%', us: '$484', es: '€519' },
+  { rank: '2', cpu: 'AMD Ryzen 7 9800X3D', score: '97%', us: '$415', es: '€475.48' },
+  { rank: '3', cpu: 'AMD Ryzen 9 9950X3D', score: '95.7%', us: '$569', es: '€658.95' },
+  { rank: '5', cpu: 'AMD Ryzen 7 7800X3D', score: '85.6%', us: '$330', es: '€377.31' },
+  { rank: '8', cpu: 'Intel Core i9-14900K', score: '78.2%', us: '$396', es: '€485.98' },
+  { rank: '9', cpu: 'Intel Core Ultra 7 270K Plus', score: '77.5%', us: '$290', es: '€355.99' },
+];
+
+const productivityRows = [
+  { rank: '1', cpu: 'AMD Ryzen 9 9950X3D2', score: '100%', us: 'About $900', es: '€956.43' },
+  { rank: '2', cpu: 'AMD Ryzen 9 9950X3D', score: '96.2%', us: '$569', es: '€658.95' },
+  { rank: '3', cpu: 'AMD Ryzen 9 9950X', score: '93%', us: '$550', es: '€516.88' },
+  { rank: '4', cpu: 'Intel Core Ultra 7 270K Plus', score: '91.9%', us: '$290', es: '€355.99' },
+  { rank: '5', cpu: 'Intel Core Ultra 9 285K', score: '85.3%', us: '$499', es: '€599.99' },
+];
 ---
 
-<BaseLayout title="Desktop CPU performance ranking" description="A ranking layout for separate gaming, productivity and value results, with sources, conditions and price context visible." currentPath="/cpus/" noindex breadcrumbs={[{ label: 'CPUs', href: '/cpus/' }, { label: 'Performance rankings' }]}>
+<BaseLayout title="Desktop CPU Performance Rankings" description="Compare desktop processors using a cited 1080p gaming index and multithreaded application scores, with separate US and Spain price snapshots." currentPath="/cpus/" noindex breadcrumbs={[{ label: 'CPUs', href: '/cpus/' }, { label: 'Performance rankings' }]}>
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'CPUs', href: '/cpus/' }, { label: 'Performance rankings' }]} />
-  <section class="page-hero"><p class="kicker">CPU rankings</p><h1>Desktop CPU performance ranked by workload</h1><p>Gaming and productivity results belong in separate categories. Every row must link to its test source and conditions.</p></section>
-  <aside class="method-bar"><div><strong>How this page is built</strong><p>Multiple attributable test sources · comparable workloads · source dates · limits explained</p></div><a class="button button--secondary" href="/how-we-rank/">Read our ranking method</a></aside>
-  <div class="category-pills" aria-label="Ranking categories"><span>Gaming</span><span>Productivity</span><span>Value</span></div>
-  <section class="section-block"><h2 class="section-heading">Gaming results</h2><p class="section-intro">Example layout · no verified product results are published yet.</p>
-    <div class="table-wrap"><table class="data-table"><caption class="sr-only">CPU gaming ranking placeholder table with US and euro-area prices</caption><thead><tr><th scope="col">Rank</th><th scope="col">Processor</th><th scope="col">Test category</th><th scope="col">US price</th><th scope="col">EUR price</th><th scope="col">Evidence</th></tr></thead><tbody>
-      {['1080p gaming', '1440p gaming', '4K gaming'].map((category) => <tr><td class="empty-cell">—</td><td class="empty-cell">No verified result</td><td>{category}</td><td class="empty-cell">$ —</td><td class="empty-cell">€ —</td><td class="empty-cell">Source, suite and date pending</td></tr>)}
+  <section class="page-hero"><p class="kicker">CPU rankings · draft</p><h1>Compare desktop CPUs by workload.</h1><p>A processor that leads in games may not lead in rendering or other heavily threaded work. These tables keep those results separate and show where each figure comes from.</p></section>
+  <aside class="method-bar"><div><strong>Evidence snapshot</strong><p>Tom’s Hardware CPU hierarchy · last updated October 5, 2026</p></div><a class="button button--secondary" href="/how-we-rank/">Read our ranking method</a></aside>
+
+  <section class="section-block" id="gaming"><h2 class="section-heading">Gaming performance at 1080p</h2><p class="section-intro">Scores are the source’s relative 1080p gaming index, with the Ryzen 7 9850X3D set to 100%. The source uses an RTX 5090 test system. Only selected entries are shown; rank numbers preserve each processor’s position in that source table.</p>
+    <div class="table-wrap"><table class="data-table"><caption class="sr-only">Selected CPU gaming results and prices in the United States and Spain</caption><thead><tr><th scope="col">Source rank</th><th scope="col">Processor</th><th scope="col">1080p index</th><th scope="col">US price¹</th><th scope="col">Spain price²</th></tr></thead><tbody>
+      {gamingRows.map((row) => <tr><td>{row.rank}</td><th scope="row">{row.cpu}</th><td>{row.score}</td><td>{row.us}</td><td>{row.es}</td></tr>)}
     </tbody></table></div>
+    <p class="source-note">A 100% score is a comparison index, not 100 frames per second. The rank reflects this source’s gaming suite and settings; another game or resolution can change the practical result. <a href="https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html">See Tom’s Hardware’s CPU hierarchy and test details.</a></p>
   </section>
-  <div class="price-note"><strong>Price context</strong><p>US and euro-area prices will be checked separately by store and country. EUR will not be calculated by converting a US listing.</p></div>
-  <p class="muted"><small>No ranking conclusion is available until test sources can be compared fairly. User-submitted benchmark data may be supplementary context, never the sole basis for a ranking.</small></p>
+
+  <section class="section-block" id="productivity"><h2 class="section-heading">Multithreaded application performance</h2><p class="section-intro">This separate index is useful for a broad view of heavily threaded workloads. It is not a promise that every editing, rendering or compiling app will follow the same order.</p>
+    <div class="table-wrap"><table class="data-table"><caption class="sr-only">Selected CPU multithreaded results and prices in the United States and Spain</caption><thead><tr><th scope="col">Source rank</th><th scope="col">Processor</th><th scope="col">Multithreaded index</th><th scope="col">US price¹</th><th scope="col">Spain price²</th></tr></thead><tbody>
+      {productivityRows.map((row) => <tr><td>{row.rank}</td><th scope="row">{row.cpu}</th><td>{row.score}</td><td>{row.us}</td><td>{row.es}</td></tr>)}
+    </tbody></table></div>
+    <p class="source-note"><a href="https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html">Source: Tom’s Hardware’s 2026 multithreaded CPU hierarchy.</a> Its percentage index is normalized to the top score in the source table.</p>
+  </section>
+
+  <section class="section-block"><h2 class="section-heading">How to read the price columns</h2><div class="price-note"><p><strong>¹ US:</strong> street prices reported by Tom’s Hardware with its October 5, 2026 hierarchy update. <strong>² Spain:</strong> example listings from PcComponentes, checked October 11, 2026. These are market snapshots for specific product listings, not guaranteed prices or averages. They are not converted from one currency to another. See the <a href="https://www.pccomponentes.com/categorias/procesadores">Spanish CPU listings</a> for current offers.</p></div></section>
+
+  <section class="section-block"><h2 class="section-heading">What stands out in this snapshot?</h2><ul class="takeaways"><li><strong>For the highest gaming score:</strong> the Ryzen 7 9850X3D leads this source’s 1080p table, but its advantage over the less expensive 9800X3D is small in this index.</li><li><strong>For a gaming-focused build:</strong> compare the 9800X3D and 9850X3D at the prices in your market; the cheaper model may be the more balanced buy.</li><li><strong>For heavily threaded work:</strong> the Ryzen 9 9950X3D2 tops this source’s index, while the Core Ultra 7 270K Plus scores 91.9% at a much lower listed price. Check benchmarks for the exact application before choosing.</li><li><strong>For everyday use:</strong> compatibility, motherboard cost, cooling, power use and the graphics card can matter more than a small difference in this table.</li></ul></section>
+  <p class="muted"><small>Editorial draft for owner review. Benchmark snapshot: October 5, 2026. Spain price snapshot: October 11, 2026. Recheck the linked test methods and retailer listings before publication. Rankings remain noindex while under review.</small></p>
 </BaseLayout>
 
 <style>
   .method-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border-radius: .7rem; background: var(--mist); }
   .method-bar strong { color: var(--teal-dark); font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; }
   .method-bar p { margin: .35rem 0 0; color: var(--navy); font-size: .8rem; font-weight: 700; }
-  .category-pills { display: flex; gap: .55rem; margin: 1.2rem 0; }
-  .category-pills span { padding: .4rem .8rem; border-radius: 999px; background: var(--white); color: var(--body); font-size: .7rem; font-weight: 800; }
-  .category-pills span:first-child { background: var(--teal); color: var(--white); }
+  .section-intro { max-width: 55rem; }
+  .source-note { margin-top: .8rem; color: var(--muted); font-size: .78rem; }
   .price-note { padding: 1rem; border-radius: .55rem; background: #FFF5E1; }
-  .price-note strong { color: var(--navy); font-size: .74rem; text-transform: uppercase; }
-  .price-note p { margin: .3rem 0 0; color: var(--body); font-size: .8rem; }
+  .price-note p { margin: 0; color: var(--body); font-size: .8rem; }
+  .takeaways { max-width: 58rem; padding-left: 1.25rem; }
+  .takeaways li { margin: .6rem 0; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   @media (max-width: 620px) { .method-bar { align-items: flex-start; flex-direction: column; } }
 </style>
